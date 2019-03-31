@@ -3,18 +3,22 @@ package com.step.evolution_of_trust;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheatPlayer implements Playable {
-    private int lastScore;
+public class GrudgePlayer implements Playable {
     private List<Moves> moves;
+    private int lastScore;
 
-    CheatPlayer() {
-        this.lastScore = 0;
+    public GrudgePlayer() {
         this.moves = new ArrayList<>();
+        this.lastScore = 0;
     }
 
     @Override
     public Moves getMove(Playable player) {
-        Moves move = Moves.CHEAT;
+        List<Moves> moves = player.getMoves();
+        Moves move = Moves.COOPERATE;
+        if (moves.contains(Moves.CHEAT)) {
+            move = Moves.CHEAT;
+        }
         this.moves.add(move);
         return move;
     }
