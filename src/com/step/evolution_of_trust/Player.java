@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Player {
-    private String name;
     private List<Moves> playerMoves;
     private int moveCount;
 
-    Player(String name) {
-        this.name = name;
-        playerMoves = new ArrayList();
+    Player() {
+        playerMoves = new ArrayList<>();
         this.moveCount = 0;
     }
 
@@ -21,7 +19,7 @@ class Player {
 
     int getScore() throws InvalidMoveException {
         int score = 0;
-        if(this.moveCount > 5) throw new InvalidMoveException();
+        if (this.moveCount > 5) throw new InvalidMoveException();
         for (Moves move : playerMoves) {
             if (move == Moves.COOPERATE) {
                 score += 2;
@@ -31,4 +29,5 @@ class Player {
         }
         return score;
     }
+
 }

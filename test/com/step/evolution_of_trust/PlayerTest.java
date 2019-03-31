@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class PlayerTest {
     @Test
     void shouldReturnTheScoreOfTheCurrentMove() throws InvalidMoveException {
-        Player player = new Player("anu");
+        Player player = new Player();
         player.playMove(Moves.COOPERATE);
         int score = player.getScore();
         assertEquals(2, score);
@@ -16,22 +16,22 @@ class PlayerTest {
 
     @Test
     void shouldReturnTheScoreAfterAnyMove() throws InvalidMoveException {
-        Player player = new Player("anu");
+        Player player = new Player();
         player.playMove(Moves.COOPERATE);
         player.playMove(Moves.CHEAT);
-        assertEquals(5,player.getScore());
+        assertEquals(5, player.getScore());
     }
 
     @Test
     void shouldNotAllowPlayerToPlayMoreThanFiveMoves() {
-        Player anu = new Player("anu");
-        anu.playMove(Moves.COOPERATE);
-        anu.playMove(Moves.COOPERATE);
-        anu.playMove(Moves.COOPERATE);
-        anu.playMove(Moves.COOPERATE);
-        anu.playMove(Moves.COOPERATE);
-        anu.playMove(Moves.COOPERATE);
-        assertThrows(InvalidMoveException.class, () -> anu.getScore());
+        Player player = new Player();
+        player.playMove(Moves.COOPERATE);
+        player.playMove(Moves.COOPERATE);
+        player.playMove(Moves.COOPERATE);
+        player.playMove(Moves.COOPERATE);
+        player.playMove(Moves.COOPERATE);
+        player.playMove(Moves.COOPERATE);
+        assertThrows(InvalidMoveException.class, player::getScore);
     }
 
 
