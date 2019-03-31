@@ -18,4 +18,18 @@ class GameTest {
         scoreBoard.addRecord(new Record(5, -5, 15));
         assertEquals(scoreBoard, game.getScoreBoard());
     }
+
+    @Test
+    void shouldReturnTheScoreBetweenCheatAndCopyCatPerson() {
+        CheatPlayer cheatPlayer = new CheatPlayer();
+        CopyCatPlayer copyCatPlayer = new CopyCatPlayer();
+        Game game = new Game(copyCatPlayer, cheatPlayer);
+        ScoreBoard scoreBoard = new ScoreBoard();
+        scoreBoard.addRecord(new Record(1, -1, 3));
+        scoreBoard.addRecord(new Record(2, -1, 3));
+        scoreBoard.addRecord(new Record(3, -1, 3));
+        scoreBoard.addRecord(new Record(4, -1, 3));
+        scoreBoard.addRecord(new Record(5, -1, 3));
+        assertEquals(scoreBoard, game.getScoreBoard());
+    }
 }

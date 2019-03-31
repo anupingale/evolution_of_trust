@@ -3,18 +3,23 @@ package com.step.evolution_of_trust;
 import java.util.ArrayList;
 import java.util.List;
 
-class CoolPlayer implements Playable {
-    private int lastScore = 0;
+public class CopyCatPlayer implements Playable {
     private List<Moves> moves;
+    private int lastScore;
 
-    CoolPlayer() {
+    CopyCatPlayer() {
         this.moves = new ArrayList<>();
+        this.lastScore = 0;
     }
 
     @Override
     public Moves getMove(Playable player) {
+        List<Moves> playerMoves = player.getMoves();
         Moves move = Moves.COOPERATE;
-        moves.add(move);
+        if (playerMoves.size() > 0) {
+            move = playerMoves.get(playerMoves.size() - 1);
+        }
+        this.moves.add(move);
         return move;
     }
 
