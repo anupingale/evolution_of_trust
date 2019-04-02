@@ -34,7 +34,7 @@ class GameTest {
     }
 
     @Test
-    void shouldReturnTheScoreBetweenCopyCatAndGrudgerPlayer() {
+    void shouldReturnTheScoreBetweenCopyCatAndGrudgePlayer() {
         CopyCatPlayer copyCatPlayer = new CopyCatPlayer();
         GrudgePlayer grudgePlayer = new GrudgePlayer();
         Game game = new Game(copyCatPlayer, grudgePlayer);
@@ -44,6 +44,20 @@ class GameTest {
         scoreBoard.addRecord(new Record(3, 6, 6));
         scoreBoard.addRecord(new Record(4, 8, 8));
         scoreBoard.addRecord(new Record(5, 10, 10));
+        assertEquals(scoreBoard, game.getScoreBoard());
+    }
+
+    @Test
+    void shouldReturnTheResultBetweenCopyCatAndDetectivePlayer() {
+        CopyCatPlayer copyCatPlayer = new CopyCatPlayer();
+        DetectivePlayer detectivePlayer = new DetectivePlayer();
+        Game game = new Game(copyCatPlayer, detectivePlayer);
+        ScoreBoard scoreBoard = new ScoreBoard();
+        scoreBoard.addRecord(new Record(1, 2, 2));
+        scoreBoard.addRecord(new Record(2, 1, 5));
+        scoreBoard.addRecord(new Record(3, 4, 4));
+        scoreBoard.addRecord(new Record(4, 6, 6));
+        scoreBoard.addRecord(new Record(5, 8, 8));
         assertEquals(scoreBoard, game.getScoreBoard());
     }
 }
