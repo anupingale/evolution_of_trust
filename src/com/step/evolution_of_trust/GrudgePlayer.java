@@ -7,14 +7,13 @@ public class GrudgePlayer implements Playable {
     private List<Moves> moves;
     private int lastScore;
 
-    public GrudgePlayer() {
+    GrudgePlayer() {
         this.moves = new ArrayList<>();
         this.lastScore = 0;
     }
 
     @Override
-    public Moves getMove(Playable player) {
-        List<Moves> moves = player.getMoves();
+    public Moves getMove(List<Moves> moves) {
         Moves move = Moves.COOPERATE;
         if (moves.contains(Moves.CHEAT)) {
             move = Moves.CHEAT;

@@ -3,8 +3,8 @@ package com.step.evolution_of_trust;
 class RuleEngine {
 
     Record getResult(int round, Playable player1, Playable player2) {
-        Moves move1 = player1.getMove(player2);
-        Moves move2 = player2.getMove(player1);
+        Moves move1 = player1.getMove(player2.getMoves());
+        Moves move2 = player2.getMove(player1.getMoves());
         int player1Score = -1;
         int player2Score = 3;
 

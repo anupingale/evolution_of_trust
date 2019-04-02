@@ -4,7 +4,7 @@ import java.util.List;
 
 interface Playable {
 
-    Moves getMove(Playable player);
+    Moves getMove(List<Moves> moves);
 
     void updateScore(int score);
 

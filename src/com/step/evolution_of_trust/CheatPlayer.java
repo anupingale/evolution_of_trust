@@ -13,7 +13,7 @@ public class CheatPlayer implements Playable {
     }
 
     @Override
-    public Moves getMove(Playable player) {
+    public Moves getMove(List<Moves> moves) {
         Moves move = Moves.CHEAT;
         this.moves.add(move);
         return move;

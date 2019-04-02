@@ -13,11 +13,10 @@ public class CopyCatPlayer implements Playable {
     }
 
     @Override
-    public Moves getMove(Playable player) {
-        List<Moves> playerMoves = player.getMoves();
+    public Moves getMove(List<Moves> moves) {
         Moves move = Moves.COOPERATE;
-        if (playerMoves.size() > 0) {
-            move = playerMoves.get(playerMoves.size() - 1);
+        if (moves.size() > 0) {
+            move = moves.get(moves.size() - 1);
         }
         this.moves.add(move);
         return move;
